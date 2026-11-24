@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeCraft IT Academy — Zamonaviy Dasturlash Maktabi</title>
+  <meta name="description" content="Zamonaviy IT kasblarini noldan professional darajagacha o'rganing. Frontend, Backend, Mobile, Sun'iy Intellekt va Kiberxavfsizlik kurslari.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Gradient Orbs & Mouse Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="particleCanvas"></canvas>
+  <div class="bg-gradient-orb orb-1"></div>
+  <div class="bg-gradient-orb orb-2"></div>
+  <div class="bg-gradient-orb orb-3"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span class="announcement-badge">🔥 Chegirma</span>
+      <p>Yozgi qabul uchun barcha kurslarga <strong>30% gacha chegirma</strong> va bepul noutbuk yutib olish imkoniyati!</p>
+      <a href="#contact" class="announcement-link">Ro'yxatdan o'tish <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <!-- Header & Navbar -->
+  <header class="header" id="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="#home" class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <span class="logo-text">Code<span class="gradient-text">Craft</span></span>
+        <span class="logo-tag">ACADEMY</span>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active">Asosiy</a>
+          </li>
+
+          <!-- Dropdown: Kurslar -->
+          <li class="nav-item has-dropdown">
+            <a href="#courses" class="nav-link">
+              Kurslar <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+            </a>
+            <div class="dropdown-menu mega-dropdown">
+              <div class="dropdown-grid">
+                <a href="#courses" class="dropdown-card" data-course="frontend">
+                  <div class="dropdown-card-icon fe-icon">
+                    <i class="fa-brands fa-react"></i>
+                  </div>
+                  <div class="dropdown-card-info">
+                    <span class="dropdown-card-title">Frontend Dasturlash</span>
+                    <span class="dropdown-card-desc">React, Next.js, TypeScript, Tailwind</span>
+                    <span class="dropdown-badge hot">Ommabop</span>
+                  </div>
+                </a>
+
+                <a href="#courses" class="dropdown-card" data-course="backend">
+                  <div class="dropdown-card-icon be-icon">
+                    <i class="fa-brands fa-python"></i>
+                  </div>
+                  <div class="dropdown-card-info">
+                    <span class="dropdown-card-title">Python Backend & AI</span>
+                    <span class="dropdown-card-desc">Django, FastAPI, Machine Learning, Bots</span>
+                    <span class="dropdown-badge trend">Trend</span>
+                  </div>
+                </a>
+
+                <a href="#courses" class="dropdown-card" data-course="mobile">
+                  <div class="dropdown-card-icon mob-icon">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                  </div>
+                  <div class="dropdown-card-info">
+                    <span class="dropdown-card-title">Mobile Dasturlash</span>
+                    <span class="dropdown-card-desc">Flutter, Dart, Android & iOS ilovalar</span>
+                    <span class="dropdown-badge">Yuqori maosh</span>
+                  </div>
+                </a>
+
+                <a href="#courses" class="dropdown-card" data-course="java">
+                  <div class="dropdown-card-icon java-icon">
+                    <i class="fa-brands fa-java"></i>
+                  </div>
+                  <div class="dropdown-card-info">
+                    <span class="dropdown-card-title">Java & Spring Boot</span>
+                    <span class="dropdown-card-desc">Enterprise tizimlar, Microservices, SQL</span>
+                    <span class="dropdown-badge">Bank sektori</span>
+                  </div>
+                </a>
+
+                <a href="#courses" class="dropdown-card" data-course="cyber">
+                  <div class="dropdown-card-icon sec-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <div class="dropdown-card-info">
+                    <span class="dropdown-card-title">Kiberxavfsizlik</span>
+                    <span class="dropdown-card-desc">Ethical Hacking, Pentesting, Tarmoq</span>
+                    <span class="dropdown-badge new">Yangi</span>
+                  </div>
+                </a>
+
+                <a href="#courses" class="dropdown-card" data-course="foundation">
+                  <div class="dropdown-card-icon base-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                  </div>
+                  <div class="dropdown-card-info">
+                    <span class="dropdown-card-title">IT Foundation</span>
+                    <span class="dropdown-card-desc">Algoritmlar, C++, Kompyuter savodxonligi</span>
+                    <span class="dropdown-badge">Noldan boshlovchilar</span>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer">
+                <div class="dropdown-footer-text">
+                  <i class="fa-solid fa-sparkles"></i> Qaysi soha sizga mos ekanligini bilmayapsizmi?
+                </div>
+                <button class="btn btn-sm btn-outline open-modal-btn">Kasb tanlash testi</button>
+              </div>
+            </div>
+          </li>
+
+          <!-- Dropdown: Biz haqimizda -->
+          <li class="nav-item has-dropdown">
+            <a href="#about" class="nav-link">
+              Biz haqimizda <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+            </a>
+            <div class="dropdown-menu simple-dropdown">
+              <a href="#about" class="dropdown-link">
+                <i class="fa-solid fa-building-columns"></i>
+                <div>
+                  <strong>Akademiya haqida</strong>
+                  <span>Tariximiz va falsafamiz</span>
+                </div>
+              </a>
+              <a href="#mentors" class="dropdown-link">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <div>
+                  <strong>Mentorlarimiz</strong>
+                  <span>Senior amaliyotchi dasturchilar</span>
+                </div>
+              </a>
+              <a href="#results" class="dropdown-link">
+                <i class="fa-solid fa-trophy"></i>
+                <div>
+                  <strong>Natijalar & Bitiruvchilar</strong>
+                  <span>Talabalarimiz qayerda ishlaydi?</span>
+                </div>
+              </a>
+              <a href="#steps" class="dropdown-link">
+                <i class="fa-solid fa-route"></i>
+                <div>
+                  <strong>O'quv metodikasi</strong>
+                  <span>Qanday o'qitamiz?</span>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="#features" class="nav-link">Afzalliklar</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#calculator" class="nav-link">Kalkulyator</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#faq" class="nav-link">FAQ</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Aloqa</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA & Actions -->
+      <div class="nav-actions">
+        <a href="tel:+998712000000" class="phone-link">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>+998 (71) 200-00-00</span>
+        </a>
+        <button class="btn btn-primary open-modal-btn" id="openTrialModal">
+          <span class="btn-shine"></span>
+          <i class="fa-solid fa-rocket"></i> Bepul darsga yozilish
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menyu ochish">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <!-- Floating Tag -->
+        <div class="hero-badge animate-fade-in">
+          <span class="pulse-dot"></span>
+          <span>O'zbekistondagi №1 Zamonaviy IT Akademiyasi</span>
+        </div>
+
+        <h1 class="hero-title animate-slide-up">
+          Kelajak kasbini <br>
+          <span class="gradient-text text-glow">Professional</span> tarzda o'rganing!
+        </h1>
+
+        <!-- Typing Animation Subtitle -->
+        <div class="typing-wrapper animate-slide-up delay-1">
+          <span class="typing-prefix">Biz bilan </span>
+          <span class="typing-text" id="typingText"></span>
+          <span class="cursor">|</span>
+        </div>
+
+        <p class="hero-desc animate-slide-up delay-2">
+          Nazariyadan ko'ra 100% amaliyot, xalqaro tajribaga ega senior mentorlar va o'qish yakunida kafolatlangan karyera markazi yordami bilan xalqaro darajadagi IT mutaxassisiga aylaning.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="hero-cta animate-slide-up delay-3">
+          <a href="#courses" class="btn btn-primary btn-lg">
+            <span class="btn-shine"></span>
+            Kurslarni ko'rish <i class="fa-solid fa-arrow-down-long"></i>
+          </a>
+          <button class="btn btn-outline btn-lg open-modal-btn">
+            <i class="fa-solid fa-circle-play"></i> Bepul ochiq dars
+          </button>
+        </div>
+
+        <!-- Trust Badges & Metrics -->
+        <div class="hero-stats animate-slide-up delay-4">
+          <div class="stat-item">
+            <h3 class="stat-number" data-target="2500">0</h3>
+            <span class="stat-plus">+</span>
+            <p class="stat-label">Muvaffaqiyatli bitiruvchilar</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <h3 class="stat-number" data-target="94">0</h3>
+            <span class="stat-plus">%</span>
+            <p class="stat-label">Ishga joylashish ko'rsatkichi</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <h3 class="stat-number" data-target="45">0</h3>
+            <span class="stat-plus">+</span>
+            <p class="stat-label">Senior darajadagi mentorlar</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Code Sandbox Card -->
+      <div class="hero-visual animate-float-slow">
+        <div class="code-window">
+          <div class="code-window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="code-tabs">
+              <button class="code-tab active" data-tab="js">developer.js</button>
+              <button class="code-tab" data-tab="py">ai_model.py</button>
+              <button class="code-tab" data-tab="style">style.css</button>
+            </div>
+            <div class="window-action">
+              <i class="fa-solid fa-copy"></i>
+            </div>
+          </div>
+
+          <div class="code-window-body">
+            <pre class="code-block" id="activeCodeBlock"><code><span class="token-keyword">const</span> <span class="token-variable">student</span> = {
+  <span class="token-property">name</span>: <span class="token-string">"Sardor Alimov"</span>,
+  <span class="token-property">role</span>: <span class="token-string">"Junior Fullstack Developer"</span>,
+  <span class="token-property">academy</span>: <span class="token-string">"CodeCraft IT Academy"</span>,
+  <span class="token-property">salaryGoal</span>: <span class="token-string">"$1,200+"</span>,
+  <span class="token-property">skills</span>: [<span class="token-string">"React"</span>, <span class="token-string">"Next.js"</span>, <span class="token-string">"Node.js"</span>, <span class="token-string">"AI"</span>],
+  <span class="token-function">learn</span>() {
+    <span class="token-keyword">return</span> <span class="token-string">"Muvaffaqiyatli IT karyera kafolati!"</span>;
+  }
+};
+
+<span class="token-comment">// Natijani konsolga chiqaramiz:</span>
+<span class="token-variable">console</span>.<span class="token-function">log</span>(<span class="token-variable">student</span>.<span class="token-function">learn</span>());
+<span class="token-output">> "Muvaffaqiyatli IT karyera kafolati!" 🚀</span></code></pre>
+          </div>
+
+          <!-- Floating Badges over Code Window -->
+          <div class="floating-badge badge-1">
+            <i class="fa-solid fa-briefcase text-success"></i>
+            <div>
+              <strong>EPAM Systems</strong>
+              <small>Talabamiz ishga qabul qilindi</small>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-2">
+            <i class="fa-solid fa-certificate text-warning"></i>
+            <div>
+              <strong>Xalqaro Sertifikat</strong>
+              <small>Bitiruvchilarga beriladi</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Companies Bar -->
+  <section class="partners-section">
+    <div class="container">
+      <p class="partners-title">Bitiruvchilarimiz faoliyat yuritayotgan nufuzli kompaniyalar</p>
+      <div class="partners-slider">
+        <div class="partners-track">
+          <div class="partner-item"><i class="fa-brands fa-google"></i> Google</div>
+          <div class="partner-item"><i class="fa-solid fa-code-branch"></i> EPAM Systems</div>
+          <div class="partner-item"><i class="fa-solid fa-building"></i> Uzum Market</div>
+          <div class="partner-item"><i class="fa-solid fa-microchip"></i> IT Park Uzbekistan</div>
+          <div class="partner-item"><i class="fa-brands fa-amazon"></i> Amazon</div>
+          <div class="partner-item"><i class="fa-solid fa-wallet"></i> Payme</div>
+          <div class="partner-item"><i class="fa-solid fa-credit-card"></i> Click</div>
+          <div class="partner-item"><i class="fa-brands fa-microsoft"></i> Microsoft</div>
+          <!-- Clones for infinite loop -->
+          <div class="partner-item"><i class="fa-brands fa-google"></i> Google</div>
+          <div class="partner-item"><i class="fa-solid fa-code-branch"></i> EPAM Systems</div>
+          <div class="partner-item"><i class="fa-solid fa-building"></i> Uzum Market</div>
+          <div class="partner-item"><i class="fa-solid fa-microchip"></i> IT Park Uzbekistan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="courses-section" id="courses">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <span class="section-tag">O'quv Dasturlari</span>
+        <h2 class="section-title">
+          Bozorda eng talabgir <span class="gradient-text">IT yo'nalishlari</span>
+        </h2>
+        <p class="section-subtitle">
+          Har bir kurs xalqaro IT kompaniyalarning zamonaviy talablari asosida tuzilgan va real loyihalarga asoslangan.
+        </p>
+      </div>
+
+      <!-- Course Category Tabs -->
+      <div class="course-tabs reveal-on-scroll">
+        <button class="filter-btn active" data-filter="all">Barchasi</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="backend">Backend & AI</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="cyber">Kiberxavfsizlik</button>
+        <button class="filter-btn" data-filter="foundation">Foundation</button>
+      </div>
+
+      <!-- Course Cards Grid -->
+      <div class="courses-grid" id="coursesGrid">
+        
+        <!-- Course 1: Frontend -->
+        <div class="course-card reveal-on-scroll" data-category="frontend">
+          <div class="course-card-top">
+            <span class="course-badge badge-popular"><i class="fa-solid fa-fire"></i> Top Tanlov</span>
+            <div class="course-icon-box fe-box">
+              <i class="fa-brands fa-react"></i>
+            </div>
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span><i class="fa-regular fa-clock"></i> 8 oy</span>
+              <span><i class="fa-solid fa-signal"></i> Noldan Pro</span>
+              <span><i class="fa-solid fa-users"></i> 12 kishilik guruh</span>
+            </div>
+            <h3 class="course-title">Fullstack JavaScript (React & Node.js)</h3>
+            <p class="course-desc">
+              HTML5, CSS3, Modern JavaScript, React.js, Next.js, Redux Toolkit, Node.js, Express, MongoDB va TypeScript orqali to'liq veb-ilovalar yarating.
+            </p>
+            <div class="course-tech-tags">
+              <span>HTML/CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>Node.js</span>
+            </div>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-pricing">
+              <span class="price-discount">1,200,000 so'm</span>
+              <span class="price-current">840,000 <small>so'm/oy</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-syllabus-btn" data-course-title="Fullstack JavaScript (React & Node.js)">Dastur</button>
+              <button class="btn btn-sm btn-primary open-modal-btn">Yozilish</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2: Python & AI -->
+        <div class="course-card reveal-on-scroll" data-category="backend">
+          <div class="course-card-top">
+            <span class="course-badge badge-trend"><i class="fa-solid fa-brain"></i> AI Integratsiya</span>
+            <div class="course-icon-box py-box">
+              <i class="fa-brands fa-python"></i>
+            </div>
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span><i class="fa-regular fa-clock"></i> 7 oy</span>
+              <span><i class="fa-solid fa-signal"></i> Noldan Pro</span>
+              <span><i class="fa-solid fa-users"></i> 12 kishilik guruh</span>
+            </div>
+            <h3 class="course-title">Python, Django & Sun'iy Intellekt</h3>
+            <p class="course-desc">
+              Python asoslari, OOP, Django & FastAPI orqali kuchli backend arxitektura, PostgreSQL, Telegram botlar, Data Science va OpenAI API integratsiyasi.
+            </p>
+            <div class="course-tech-tags">
+              <span>Python</span>
+              <span>Django</span>
+              <span>FastAPI</span>
+              <span>PostgreSQL</span>
+              <span>AI & ML</span>
+              <span>Docker</span>
+            </div>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-pricing">
+              <span class="price-discount">1,300,000 so'm</span>
+              <span class="price-current">890,000 <small>so'm/oy</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-syllabus-btn" data-course-title="Python, Django & AI">Dastur</button>
+              <button class="btn btn-sm btn-primary open-modal-btn">Yozilish</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3: Mobile -->
+        <div class="course-card reveal-on-scroll" data-category="mobile">
+          <div class="course-card-top">
+            <span class="course-badge badge-hot"><i class="fa-solid fa-bolt"></i> Tezkor Natija</span>
+            <div class="course-icon-box flutter-box">
+              <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span><i class="fa-regular fa-clock"></i> 6 oy</span>
+              <span><i class="fa-solid fa-signal"></i> O'rta / Pro</span>
+              <span><i class="fa-solid fa-users"></i> 10 kishilik guruh</span>
+            </div>
+            <h3 class="course-title">Flutter & Dart Mobile Development</h3>
+            <p class="course-desc">
+              Bitta kod bazasi bilan ham Android, ham iOS platformalari uchun chiroyli, tezkor va interaktiv zamonaviy mobil ilovalar yaratishni o'rganing.
+            </p>
+            <div class="course-tech-tags">
+              <span>Dart</span>
+              <span>Flutter</span>
+              <span>Bloc/Provider</span>
+              <span>Firebase</span>
+              <span>REST API</span>
+              <span>App Store</span>
+            </div>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-pricing">
+              <span class="price-discount">1,250,000 so'm</span>
+              <span class="price-current">870,000 <small>so'm/oy</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-syllabus-btn" data-course-title="Flutter & Dart Mobile Development">Dastur</button>
+              <button class="btn btn-sm btn-primary open-modal-btn">Yozilish</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 4: Java & Spring Boot -->
+        <div class="course-card reveal-on-scroll" data-category="backend">
+          <div class="course-card-top">
+            <span class="course-badge badge-premium"><i class="fa-solid fa-shield"></i> Bank & Fintech</span>
+            <div class="course-icon-box java-box">
+              <i class="fa-brands fa-java"></i>
+            </div>
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span><i class="fa-regular fa-clock"></i> 8 oy</span>
+              <span><i class="fa-solid fa-signal"></i> Noldan Pro</span>
+              <span><i class="fa-solid fa-users"></i> 12 kishilik guruh</span>
+            </div>
+            <h3 class="course-title">Java & Spring Boot Enterprise</h3>
+            <p class="course-desc">
+              Banklar va yirik korporativ tizimlar uchun xavfsiz backend, Microservices arxitekturasi, Spring Security, Hibernate va Kafka bilan ishlash.
+            </p>
+            <div class="course-tech-tags">
+              <span>Java Core</span>
+              <span>Spring Boot</span>
+              <span>PostgreSQL</span>
+              <span>Kafka</span>
+              <span>Microservices</span>
+            </div>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-pricing">
+              <span class="price-discount">1,400,000 so'm</span>
+              <span class="price-current">950,000 <small>so'm/oy</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-syllabus-btn" data-course-title="Java & Spring Boot Enterprise">Dastur</button>
+              <button class="btn btn-sm btn-primary open-modal-btn">Yozilish</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 5: Cyber Security -->
+        <div class="course-card reveal-on-scroll" data-category="cyber">
+          <div class="course-card-top">
+            <span class="course-badge badge-new"><i class="fa-solid fa-lock"></i> Yuqori Talab</span>
+            <div class="course-icon-box cyber-box">
+              <i class="fa-solid fa-user-secret"></i>
+            </div>
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span><i class="fa-regular fa-clock"></i> 6 oy</span>
+              <span><i class="fa-solid fa-signal"></i> Fundamental</span>
+              <span><i class="fa-solid fa-users"></i> 10 kishilik guruh</span>
+            </div>
+            <h3 class="course-title">Kiberxavfsizlik & Ethical Hacking</h3>
+            <p class="course-desc">
+              Tarmoq xavfsizligi, Linux ma'muriyati, axborot xavfsizligi auditlari, zaifliklarni aniqlash (Pentesting) va kiber hujumlardan himoyalanish.
+            </p>
+            <div class="course-tech-tags">
+              <span>Linux</span>
+              <span>Networking</span>
+              <span>Kali Linux</span>
+              <span>Wireshark</span>
+              <span>Metasploit</span>
+            </div>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-pricing">
+              <span class="price-discount">1,500,000 so'm</span>
+              <span class="price-current">990,000 <small>so'm/oy</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-syllabus-btn" data-course-title="Kiberxavfsizlik & Ethical Hacking">Dastur</button>
+              <button class="btn btn-sm btn-primary open-modal-btn">Yozilish</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 6: IT Foundation -->
+        <div class="course-card reveal-on-scroll" data-category="foundation">
+          <div class="course-card-top">
+            <span class="course-badge badge-base"><i class="fa-solid fa-seedling"></i> Boshlovchilar</span>
+            <div class="course-icon-box base-box">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span><i class="fa-regular fa-clock"></i> 3 oy</span>
+              <span><i class="fa-solid fa-signal"></i> Boshlang'ich</span>
+              <span><i class="fa-solid fa-users"></i> 14 kishilik guruh</span>
+            </div>
+            <h3 class="course-title">Dasturlash Asoslari (Foundation C++)</h3>
+            <p class="course-desc">
+              Dasturlash mantiqiy fikrlashini rivojlantirish, ma'lumotlar tuzilmalari, algoritmlar, C++ tili asoslari va kompyuter arxitekturasi.
+            </p>
+            <div class="course-tech-tags">
+              <span>C++</span>
+              <span>Algoritmlar</span>
+              <span>Data Structures</span>
+              <span>Git/GitHub</span>
+              <span>Logic</span>
+            </div>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-pricing">
+              <span class="price-discount">950,000 so'm</span>
+              <span class="price-current">650,000 <small>so'm/oy</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-syllabus-btn" data-course-title="Dasturlash Asoslari (Foundation)">Dastur</button>
+              <button class="btn btn-sm btn-primary open-modal-btn">Yozilish</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Tuition Calculator Section -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="calculator-wrapper reveal-on-scroll">
+        <div class="calculator-info">
+          <span class="section-tag">Interaktiv Kalkulyator</span>
+          <h2 class="section-title">O'qish narxi va <span class="gradient-text">chegirmani</span> hisoblang</h2>
+          <p class="section-subtitle">
+            O'zingizga qulay yo'nalish, ta'lim formati va to'lov usulini tanlang. Biz siz uchun eng maqbul taklifni darhol hisoblab beramiz!
+          </p>
+
+          <ul class="calc-perks-list">
+            <li><i class="fa-solid fa-circle-check text-gradient"></i> Bir martalik to'lovda qo'shimcha <strong>20% chegirma</strong></li>
+            <li><i class="fa-solid fa-circle-check text-gradient"></i> Oylik foizsiz bo'lib to'lash imkoniyati</li>
+            <li><i class="fa-solid fa-circle-check text-gradient"></i> Eng a'lochi talabalar uchun <strong>100% Grant</strong></li>
+            <li><i class="fa-solid fa-circle-check text-gradient"></i> Bepul qo'shimcha ingliz tili darslari</li>
+          </ul>
+        </div>
+
+        <div class="calculator-box">
+          <form id="tuitionCalcForm" class="calc-form">
+            <!-- Select Course -->
+            <div class="calc-group">
+              <label for="calcCourse">Yo'nalishni tanlang:</label>
+              <select id="calcCourse" class="calc-select">
+                <option value="frontend" data-price="840000" data-months="8">Fullstack Frontend (React & Node.js) - 8 oy</option>
+                <option value="backend" data-price="890000" data-months="7">Python, Django & AI - 7 oy</option>
+                <option value="mobile" data-price="870000" data-months="6">Flutter & Dart Mobile - 6 oy</option>
+                <option value="java" data-price="950000" data-months="8">Java & Spring Boot Enterprise - 8 oy</option>
+                <option value="cyber" data-price="990000" data-months="6">Kiberxavfsizlik - 6 oy</option>
+                <option value="foundation" data-price="650000" data-months="3">IT Foundation (C++) - 3 oy</option>
+              </select>
+            </div>
+
+            <!-- Format: Offline vs Online -->
+            <div class="calc-group">
+              <label>Ta'lim shakli:</label>
+              <div class="calc-toggle-group">
+                <label class="calc-radio-card active">
+                  <input type="radio" name="calcFormat" value="offline" checked>
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <span>Offline (Toshkent IT Hub)</span>
+                </label>
+                <label class="calc-radio-card">
+                  <input type="radio" name="calcFormat" value="online">
+                  <i class="fa-solid fa-globe"></i>
+                  <span>Online (Jonli darslar -15%)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Payment Type -->
+            <div class="calc-group">
+              <label>To'lov rejasi:</label>
+              <div class="calc-toggle-group">
+                <label class="calc-radio-card active">
+                  <input type="radio" name="calcPlan" value="monthly" checked>
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <span>Oylik to'lov</span>
+                </label>
+                <label class="calc-radio-card">
+                  <input type="radio" name="calcPlan" value="full">
+                  <i class="fa-solid fa-tags"></i>
+                  <span>To'liq to'lov (-20% Chegirma)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Calculation Output Display -->
+            <div class="calc-result-card">
+              <div class="calc-result-row">
+                <span>Oylik to'lov:</span>
+                <strong id="calcMonthlyPrice">840,000 so'm</strong>
+              </div>
+              <div class="calc-result-row">
+                <span>Kurs davomiyligi:</span>
+                <strong id="calcDuration">8 oy</strong>
+              </div>
+              <div class="calc-result-row highlight-discount">
+                <span>Sizning tejamkorligingiz:</span>
+                <strong id="calcSavedAmount">0 so'm</strong>
+              </div>
+              <div class="calc-divider"></div>
+              <div class="calc-result-row total">
+                <span>Jami to'lov:</span>
+                <span class="calc-total-number" id="calcTotalPrice">6,720,000 so'm</span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block open-modal-btn mt-3">
+                Ushbu narxda ro'yxatdan o'tish
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us / Features -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <span class="section-tag">Nega Biz?</span>
+        <h2 class="section-title">
+          CodeCraft akademiyasining <span class="gradient-text">Ustunliklari</span>
+        </h2>
+        <p class="section-subtitle">
+          Biz shunchaki nazariya bermaymiz. Maqsadimiz — sizni haqiqiy xalqaro bozorga raqobatbardosh dasturchi qilib tayyorlash.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card reveal-on-scroll">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">
+            <i class="fa-solid fa-laptop-file"></i>
+          </div>
+          <h3 class="feature-title">Real Portfolio Loyihalar</h3>
+          <p class="feature-desc">
+            Har bir talaba bitirishigacha kamida 4-5 ta tijoriy darajadagi haqiqiy loyihalarni yaratadi va GitHub portfolioga ega bo'ladi.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card reveal-on-scroll">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h3 class="feature-title">Senior Mentorlar</h3>
+          <p class="feature-desc">
+            Darslarni IT sohasida kamida 4-5 yillik amaliy tajribaga ega bo'lgan va xalqaro loyihalarda ishlaydigan dasturchilar o'tadi.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card reveal-on-scroll">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h3 class="feature-title">Karyera Markazi Ko'magi</h3>
+          <p class="feature-desc">
+            Rezyumeni to'g'ri shakllantirish, LinkedIn profilini yuritish, texnik va HR intervyularga tayyorlanishda to'liq yordam.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card reveal-on-scroll">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">
+            <i class="fa-solid fa-mug-hot"></i>
+          </div>
+          <h3 class="feature-title">24/7 Bepul Coworking</h3>
+          <p class="feature-desc">
+            Darsdan tashqari vaqtlarda ham akademiyamizning shinam, yuqori tezlikdagi internet va kofe bilan ta'minlangan coworking markazida dars qiling.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card reveal-on-scroll">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 class="feature-title">Xalqaro Sertifikat</h3>
+          <p class="feature-desc">
+            Kursni muvaffaqiyatli yakunlagan talabalarga QR-kod bilan tasdiqlanadigan rasmiy va xalqaro tan olingan sertifikat topshiriladi.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card reveal-on-scroll">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <h3 class="feature-title">Bepul IT English & Soft Skills</h3>
+          <p class="feature-desc">
+            Xalqaro vakansiyalarga topshirish uchun texnik ingliz tili darslari hamda jamoada ishlash va muloqot ko'nikmalari bepul o'rgatiladi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Process Roadmap -->
+  <section class="roadmap-section" id="steps">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <span class="section-tag">O'quv Jarayoni</span>
+        <h2 class="section-title">
+          Dasturchi bo'lish sari <span class="gradient-text">5 ta muhim qadam</span>
+        </h2>
+        <p class="section-subtitle">Noldan professional darajagacha bo'lgan yo'lingiz aniq va tizimli ishlab chiqilgan.</p>
+      </div>
+
+      <div class="roadmap-timeline">
+        <div class="timeline-step reveal-on-scroll">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-comments"></i></div>
+            <h3 class="step-title">Bepul Konsultatsiya & Sinov Darsi</h3>
+            <p>Qiziqishlaringiz va qobiliyatingizga qarab o'zingizga eng mos bo'lgan IT yo'nalishini aniqlab beramiz.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal-on-scroll">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3 class="step-title">Amaliy Darslar & Kod Yozish</h3>
+            <p>Har bir mavzu nazariy emas, to'g'ridan-to'g'ri kod yozish va real masalalarni yechish orqali mustahkamlanadi.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal-on-scroll">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-user-check"></i></div>
+            <h3 class="step-title">Mentor bilan Shaxsiy Code Review</h3>
+            <p>Yozgan kodingiz ustoz tomonidan satrma-satr tekshirilib, xatolar va optimizatsiya bo'yicha maslahatlar beriladi.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal-on-scroll">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-cubes"></i></div>
+            <h3 class="step-title">Diplom Loyihasi va Portfolio</h3>
+            <p>Kurs so'ngida buyurtmachi talablari asosidagi yirik jamoaviy loyiha ustida ishlab, uni muvaffaqiyatli himoya qilasiz.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal-on-scroll">
+          <div class="step-number">05</div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h3 class="step-title">Karyera Markazi & Ishga Joylashish</h3>
+            <p>Hamkor kompaniyalarimiz bilan tashkil etilgan intervyular orqali IT sohasidagi ilk ish o'rningizga ega bo'lasiz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentors Section -->
+  <section class="mentors-section" id="mentors">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <span class="section-tag">Bizning Ustozlar</span>
+        <h2 class="section-title">
+          Tajribali va amaliyotchi <span class="gradient-text">Mentorlarimiz</span>
+        </h2>
+        <p class="section-subtitle">
+          Xalqaro va mahalliy yirik IT korporatsiyalarida real loyihalar yaratayotgan mutaxassislardan ta'lim oling.
+        </p>
+      </div>
+
+      <div class="mentors-grid">
+        <!-- Mentor 1 -->
+        <div class="mentor-card reveal-on-scroll">
+          <div class="mentor-avatar-box">
+            <div class="mentor-avatar avatar-1">
+              <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <span class="mentor-company">EPAM Systems</span>
+          </div>
+          <h3 class="mentor-name">Javohir Toshpo'latov</h3>
+          <p class="mentor-role">Lead Fullstack Architect (6+ yil tajriba)</p>
+          <div class="mentor-skills">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>TypeScript</span>
+          </div>
+          <div class="mentor-socials">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+
+        <!-- Mentor 2 -->
+        <div class="mentor-card reveal-on-scroll">
+          <div class="mentor-avatar-box">
+            <div class="mentor-avatar avatar-2">
+              <i class="fa-solid fa-user-ninja"></i>
+            </div>
+            <span class="mentor-company">Uzum Tech</span>
+          </div>
+          <h3 class="mentor-name">Azizbek Qodirov</h3>
+          <p class="mentor-role">Senior Python & AI Engineer (5+ yil tajriba)</p>
+          <div class="mentor-skills">
+            <span>Python</span>
+            <span>Django</span>
+            <span>Machine Learning</span>
+          </div>
+          <div class="mentor-socials">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+
+        <!-- Mentor 3 -->
+        <div class="mentor-card reveal-on-scroll">
+          <div class="mentor-avatar-box">
+            <div class="mentor-avatar avatar-3">
+              <i class="fa-solid fa-user-shield"></i>
+            </div>
+            <span class="mentor-company">IT Park CyberLab</span>
+          </div>
+          <h3 class="mentor-name">Madina Rahimova</h3>
+          <p class="mentor-role">Cyber Security Specialist (4+ yil tajriba)</p>
+          <div class="mentor-skills">
+            <span>Ethical Hacking</span>
+            <span>Network</span>
+            <span>Linux</span>
+          </div>
+          <div class="mentor-socials">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+
+        <!-- Mentor 4 -->
+        <div class="mentor-card reveal-on-scroll">
+          <div class="mentor-avatar-box">
+            <div class="mentor-avatar avatar-4">
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <span class="mentor-company">Payme</span>
+          </div>
+          <h3 class="mentor-name">Sirojiddin Yunusov</h3>
+          <p class="mentor-role">Senior Mobile Dev (Flutter & Swift)</p>
+          <div class="mentor-skills">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Architecture</span>
+          </div>
+          <div class="mentor-socials">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials & Student Results -->
+  <section class="testimonials-section" id="results">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <span class="section-tag">Muvaffaqiyat Tarixlari</span>
+        <h2 class="section-title">
+          Bitiruvchilarimizning <span class="gradient-text">Haqiqiy Fikrlari</span>
+        </h2>
+        <p class="section-subtitle">Ular ham noldan boshlashgan edi. Hozirda esa nufuzli kompaniyalarda faoliyat yuritishmoqda.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Review 1 -->
+        <div class="testimonial-card reveal-on-scroll">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "Dasturlash bo'yicha hech qanday bazam yo'q edi. CodeCraft akademiyasida Frontend kursini o'qidim. Ustozlarning code reviewlari va real loyihalar tufayli 7-oydayoq EPAMga Junior Frontend dasturchi sifatida ishga kirdim!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="author-info">
+              <strong>Shohruh Mirzayev</strong>
+              <span>Frontend Developer @ EPAM Systems</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="testimonial-card reveal-on-scroll">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "Python & AI yo'nalishini tanlagan edim. O'quv jarayonida Django va FastAPI bo'yicha kuchli bilim oldik. Karyera markazidagi mock intervyular menga juda katta ishonch berdi. Hozirda fintech sohasida ishlayapman."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="author-info">
+              <strong>Malika Karimova</strong>
+              <span>Backend Developer @ Click</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="testimonial-card reveal-on-scroll">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "Coworking zonasining 24/7 ochiqligi menga juda yoqdi. Darsdan keyin ham guruhdoshlar bilan loyihalar ustida tonggacha ishladik. Bu yerda haqiqiy dasturchilar muhiti yaratilgan!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="author-info">
+              <strong>Dilshodbek Ergashev</strong>
+              <span>Mobile Dev @ Uzum Bank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <span class="section-tag">Ko'p Beriladigan Savollar</span>
+        <h2 class="section-title">
+          Barcha savollaringizga <span class="gradient-text">Aniq Javoblar</span>
+        </h2>
+        <p class="section-subtitle">Agar boshqa savollaringiz bo'lsa, mutaxassislarimiz bilan bog'lanishingiz mumkin.</p>
+      </div>
+
+      <div class="faq-accordion-container reveal-on-scroll">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item active">
+          <button class="faq-header">
+            <span class="faq-title">Dasturlashni o'rganish uchun ingliz tili yoki matematika bilish shartmi?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Boshlang'ich bosqichda chuqur matematika yoki erkin ingliz tili darajasi shart emas. Mantiqiy fikrlash va kompyuterdan foydalana olish ko'nikmasi yetarli. Dasturlash jarayonida zarur bo'ladigan texnik atamalarni va IT ingliz tilini kurs davomida bepul o'rgatamiz!
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <button class="faq-header">
+            <span class="faq-title">Noutbukim bo'lmasa nima qilaman?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Akademiyamizdagi barcha o'quv xonalari va coworking maydoni zamonaviy kuchli kompyuterlar (i5/i7, 16GB RAM, SSD) bilan jihozlangan. O'quv jarayonida markazimiz texnikalaridan to'liq bepul foydalanishingiz mumkin.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <button class="faq-header">
+            <span class="faq-title">Kursni tugatgach ish topishimga qanday yordam berasizlar?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Bizning "Karyera Markazi" mavjud. Bitiruvchilarimizga to'g'ri rezyume (CV) tayyorlash, GitHub profilini bezash, texnik intervyulardan (Mock Interview) o'tish bo'yicha ko'maklashamiz va 50 dan ortiq hamkor IT kompaniyalariga to'g'ridan-to'g'ri tavsiya qilamiz.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <button class="faq-header">
+            <span class="faq-title">Darslar qaysi kunlari va soatlarda bo'lib o'tadi?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Darslar haftasiga 3 kun (Toq yoki Juft kunlari) 2 soatdan amaliy shaklda o'tiladi. Guruhlarimiz ertalabki (09:00 - 11:00), kunduzgi (14:00 - 16:00) va kechki (19:00 - 21:00) smenalarda tashkil etilgan. Ishlaydiganlar yoki talabalar uchun kechki vaqtlar juda qulay.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <button class="faq-header">
+            <span class="faq-title">Darslarni qoldirsam nima bo'ladi? Yozib olinadimi?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Ha! Har bir darsning video yozuvi, taqdimotlari va manba kodlari shaxsiy talaba kabinetingizda (LMS tizimi) saqlanadi. Qoldirilgan mavzular bo'yicha yordamchi o'qituvchilar bilan individual qo'shimcha dars tashkil etiladi.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item">
+          <button class="faq-header">
+            <span class="faq-title">O'qish yakunida sertifikat beriladimi?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Albatta! Kurs yakuniy imtihoni va diplom loyihasini muvaffaqiyatli topshirgan har bir o'quvchiga xalqaro formatdagi, QR-kodli elektron va qog'oz shaklidagi rasmiy sertifikat topshiriladi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Lead Form Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-card reveal-on-scroll">
+        <div class="contact-info-col">
+          <span class="section-tag">Biz Bilan Bog'laning</span>
+          <h2 class="contact-title">
+            Kelajagingiz uchun ilk qadamni <span class="gradient-text">Bugun</span> qo'ying!
+          </h2>
+          <p class="contact-subtitle">
+            Formani to'ldiring, mutaxassisimiz 15 daqiqa ichida siz bilan bog'lanib, bepul sinov darsi va chegirmalar haqida to'liq ma'lumot beradi.
+          </p>
+
+          <div class="contact-details">
+            <div class="detail-item">
+              <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Manzil:</strong>
+                <p>Toshkent sh., Mirzo Ulug'bek tumani, IT Park majmuasi, 4-bino</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Telefon raqam:</strong>
+                <p><a href="tel:+998712000000">+998 (71) 200-00-00</a> / <a href="tel:+998901234567">+998 (90) 123-45-67</a></p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Elektron pochta:</strong>
+                <p>info@codecraft.uz</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <strong>Ish tartibi:</strong>
+                <p>Dushanba — Shanba: 09:00 dan 21:00 gacha</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links-row">
+            <a href="https://t.me" target="_blank" class="social-circle tg"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-circle ig"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-circle yt"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-circle in"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="contact-form-col">
+          <form id="contactForm" class="contact-form">
+            <h3 class="form-title">Bepul Ochiq Darsga Yozilish</h3>
+            <p class="form-subtitle">Joylar soni cheklangan, hoziroq band qiling!</p>
+
+            <div class="form-group">
+              <label for="userName">Ismingiz va Familiyangiz *</label>
+              <div class="input-with-icon">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="userName" name="name" placeholder="Masalan: Sardor Alimov" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="userPhone">Telefon raqamingiz *</label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="userPhone" name="phone" placeholder="+998 (90) 123-45-67" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="userCourse">Qiziqayotgan yo'nalishingiz *</label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-code"></i>
+                <select id="userCourse" name="course" required>
+                  <option value="" disabled selected>Kursni tanlang...</option>
+                  <option value="frontend">Fullstack JavaScript (React & Node.js)</option>
+                  <option value="backend">Python, Django & AI</option>
+                  <option value="mobile">Flutter & Dart Mobile Dev</option>
+                  <option value="java">Java & Spring Boot</option>
+                  <option value="cyber">Kiberxavfsizlik</option>
+                  <option value="foundation">IT Foundation (Dasturlash asoslari)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="userComment">Qo'shimcha izoh yoki savol (ixtiyoriy)</label>
+              <div class="input-with-icon textarea-icon">
+                <i class="fa-regular fa-comment-dots"></i>
+                <textarea id="userComment" name="comment" rows="3" placeholder="Masalan: Kechki guruhga yozilmoqchiman..."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitFormBtn">
+              <span class="btn-shine"></span>
+              <span>Arizani yuborish</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <p class="form-terms">
+              <i class="fa-solid fa-lock"></i> Ma'lumotlaringiz 100% xavfsiz va uchinchi shaxslarga berilmaydi.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-col col-brand">
+        <a href="#home" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <span class="logo-text">Code<span class="gradient-text">Craft</span></span>
+          <span class="logo-tag">ACADEMY</span>
+        </a>
+        <p class="footer-about">
+          CodeCraft IT Academy — xalqaro talablarga javob beradigan zamonaviy dasturlash maktabi. Biz talabalarni haqiqiy IT industriyaga tayyorlaymiz.
+        </p>
+        <div class="footer-license">
+          <i class="fa-solid fa-shield-check"></i> O'zbekiston Respublikasi Vazirlar Mahkamasi huzuridagi Ta'lim sifatini nazorat qilish davlat inspeksiyasi litsenziyasi asosida faoliyat yuritadi.
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Kurslarimiz</h4>
+        <ul class="footer-links">
+          <li><a href="#courses"><i class="fa-solid fa-angle-right"></i> Fullstack Frontend</a></li>
+          <li><a href="#courses"><i class="fa-solid fa-angle-right"></i> Python & AI Engineering</a></li>
+          <li><a href="#courses"><i class="fa-solid fa-angle-right"></i> Flutter Mobile Apps</a></li>
+          <li><a href="#courses"><i class="fa-solid fa-angle-right"></i> Java Spring Boot</a></li>
+          <li><a href="#courses"><i class="fa-solid fa-angle-right"></i> Kiberxavfsizlik</a></li>
+          <li><a href="#courses"><i class="fa-solid fa-angle-right"></i> IT Foundation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Tezkor Havolalar</h4>
+        <ul class="footer-links">
+          <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Bosh sahifa</a></li>
+          <li><a href="#about"><i class="fa-solid fa-angle-right"></i> Biz haqimizda</a></li>
+          <li><a href="#mentors"><i class="fa-solid fa-angle-right"></i> Ustozlarimiz</a></li>
+          <li><a href="#calculator"><i class="fa-solid fa-angle-right"></i> Narx kalkulyatori</a></li>
+          <li><a href="#results"><i class="fa-solid fa-angle-right"></i> Bitiruvchilar natijalari</a></li>
+          <li><a href="#faq"><i class="fa-solid fa-angle-right"></i> Savol-javoblar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col col-newsletter">
+        <h4 class="footer-title">Yangiliklardan Xabardor Bo'ling</h4>
+        <p class="newsletter-desc">Bepul masterklasslar, yangi guruhlar va IT sohasidagi trendlar haqida birinchilardan bo'lib bilib oling.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Emailingizni kiriting" required>
+          <button type="submit" aria-label="Obuna bo'lish"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+        <div class="footer-call">
+          <i class="fa-solid fa-headset"></i>
+          <div>
+            <span>Savollaringiz bormi? Qo'ng'iroq qiling:</span>
+            <strong>+998 (71) 200-00-00</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>&copy; 2025 CodeCraft IT Academy. Barcha huquqlar himoyalangan.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Maxfiylik siyosati</a>
+          <span>•</span>
+          <a href="#">Ommaviy oferta</a>
+          <span>•</span>
+          <a href="#">Foydalanish shartlari</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Trial Lesson / Registration -->
+  <div class="modal-backdrop" id="trialModal">
+    <div class="modal-dialog">
+      <button class="modal-close" id="closeTrialModal" aria-label="Yopish">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge"><i class="fa-solid fa-gift"></i> 100% Bepul</div>
+        <h3 class="modal-title">Ochiq Darsga Joy Band Qiling</h3>
+        <p class="modal-subtitle">Dasturlash muhiti bilan tanishing va ilk amaliy kodingizni yozib ko'ring!</p>
+      </div>
+      <form id="modalForm" class="modal-form">
+        <div class="form-group">
+          <label>Ismingiz *</label>
+          <input type="text" placeholder="Ismingizni kiriting" required>
+        </div>
+        <div class="form-group">
+          <label>Telefon raqamingiz *</label>
+          <input type="tel" placeholder="+998 (90) 123-45-67" required class="phone-input">
+        </div>
+        <div class="form-group">
+          <label>Qiziqqan yo'nalishingiz</label>
+          <select required>
+            <option value="frontend">Frontend (React, JavaScript)</option>
+            <option value="backend">Python & Sun'iy Intellekt</option>
+            <option value="mobile">Flutter Mobile</option>
+            <option value="cyber">Kiberxavfsizlik</option>
+            <option value="foundation">IT Foundation</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">
+          <span class="btn-shine"></span>
+          Joyni band qilish <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Course Syllabus Details -->
+  <div class="modal-backdrop" id="syllabusModal">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close" id="closeSyllabusModal" aria-label="Yopish">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge"><i class="fa-solid fa-book-open"></i> O'quv Rejasi</div>
+        <h3 class="modal-title" id="syllabusModalTitle">Kurs Dasturi</h3>
+        <p class="modal-subtitle">Ushbu kursda o'rganiladigan modullar va loyihalar</p>
+      </div>
+      <div class="syllabus-modules" id="syllabusModulesList">
+        <!-- Dynamically injected via JavaScript -->
+      </div>
+      <div class="modal-footer-actions">
+        <button class="btn btn-outline" id="syllabusCloseBtn">Yopish</button>
+        <button class="btn btn-primary open-modal-btn" id="syllabusEnrollBtn">Kursga yozilish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification">
+    <div class="toast-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <div class="toast-content">
+      <h4 id="toastTitle">Muvaffaqiyatli yuborildi!</h4>
+      <p id="toastMessage">Tez orada operatorimiz siz bilan bog'lanadi.</p>
+    </div>
+    <button class="toast-close" id="closeToast">&times;</button>
+  </div>
+
+  <!-- Quick Action Floating Buttons -->
+  <div class="floating-actions">
+    <!-- Back to top button -->
+    <button class="action-btn back-to-top" id="backToTop" aria-label="Yuqoriga qaytish">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+    <!-- Telegram Quick Contact button -->
+    <a href="https://t.me" target="_blank" class="action-btn tg-float" aria-label="Telegram orqali bog'lanish">
+      <i class="fa-brands fa-telegram"></i>
+      <span class="pulse-ring"></span>
+    </a>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="index.js"></script>
+</body>
+</html>
